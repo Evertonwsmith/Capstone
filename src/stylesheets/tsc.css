@@ -1,0 +1,35 @@
+.text_input_container{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.text_suggestion_container{
+    position: absolute;
+    background-color: #fff;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    top: 100%;
+    left:0;
+    right:0;
+    z-index: 99;
+}
+
+.text_suggestion{
+    padding: 0.4rem;
+    border-radius: 0.2rem;
+    color:black
+}
+
+.text_suggestion:hover{
+    background-color: #FF0080;
+}
+
+.text_suggestion_active{
+    background-color: #FF0080;
+}
+
+#search_bar{
+    width: 100%;
+    min-width: 7rem;
+}

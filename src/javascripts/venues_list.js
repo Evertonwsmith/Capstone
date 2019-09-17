@@ -1,0 +1,1 @@
+var destination_page = '../pages/venues_results.php'; //Set the destination page for search.js

@@ -1,0 +1,17 @@
+language: php
+
+php:
+  - '7.3'
+
+services:
+  - mysql
+   
+before_install:
+  - mysql -u root --password="" < src/my_sql/travis.sql
+  - sudo service mysql status
+
+script: 
+  - phpunit --configuration testing.xml
+
+notifications:
+  email: false

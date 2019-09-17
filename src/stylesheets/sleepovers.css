@@ -1,0 +1,1419 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,body {
+    height: 100%;
+    min-height: 100%;
+    background-color: #191919;
+    color: white;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    background-image: url("../../img/sleepovers.svg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position-x: center;
+    background-position-y: 65%;
+    background-size: 36%;
+    background-origin: padding-box;
+}
+
+a {
+    color: #FF0080;
+}
+
+a:hover {
+    color: #FF0080;
+    text-decoration: none;
+}
+
+button, input, textarea, select{
+    padding: 0.4rem;
+    margin: 0.2rem;
+    color: black;
+    background-color: #FFF;
+    border: none;
+    border-radius: 0.2rem;
+    display: inline-block;
+}
+
+button[disabled], input[disabled], textarea[disabled], select[disabled] {
+    color: #888;
+}
+
+textarea {
+    font-family: monospace;
+}
+
+input[type=number] {
+    min-width: 3.5rem;
+}
+
+textarea {
+    min-height: 2rem;
+    width: 100%;
+}
+
+footer {
+    background-color: black;
+    position: absolute;
+    height: 3.5rem;
+    left:0;
+    right:0;
+    bottom:0;
+}
+
+table{
+ width: 100%;
+ background-color: rgba(34, 34, 34, 0.5);
+}
+
+table,th,td,tr{
+    padding: 0.4rem;
+}
+
+tr {
+    border-bottom: 1px solid #666;
+}
+
+tr:hover {
+    background-color: #252525;
+}
+
+th{
+    position: relative;
+    background-color: rgba(17, 17, 17, 0.5);
+    border-top: 1px solid #666;
+}
+
+tr:nth-child(odd){
+    background-color: rgba(17, 17, 17, 0.5);
+}
+
+tr:nth-child(odd):hover{
+    background-color: #252525;
+}
+
+hr{
+    border-color: white;
+    box-shadow: 8px 6px 2px #FF0080;
+}
+
+.help-hover {
+    display: inline;
+    position: relative;
+    z-index: 99;
+}
+
+.help-hover:hover b {
+    cursor: pointer;
+}
+
+.help-hover b {
+    color: #FF0080;
+}
+
+.help-hover div {
+    display: none;
+}
+
+.help-hover:hover div {
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    width: 20rem;
+    padding: 0.5rem;
+    background-color: white;
+    color: black;
+    border-radius: 0.5rem;
+    /* border: 1px solid #FF0080; */
+    box-shadow: 0 0 1rem #FF0080;
+}
+
+.admin-table-container {
+    overflow: visible;
+    overflow-x: auto;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 3.5rem 0.1rem rgba(255, 0, 128, 0.5);
+}
+
+.admin-table-container table td {
+    border: none;
+    border-right: 1px solid black;
+}
+
+.admin-table-container table tr,th{
+    border: none;
+}
+
+.split-margin {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.vertical th{
+    border-top: none;
+    background-color: rgba(17, 17, 17, 0.5);
+}
+
+.vertical tr{
+    background-color: transparent;
+}
+
+.vertical tr:nth-child(odd){
+    background-color: transparent;
+}
+
+.label-left{
+    display: inline-block;
+    min-width: 6rem;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.label-left-long{
+    display: inline-block;
+    min-width: 12rem;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.hidden{
+    display: none;
+}
+
+.select-option{
+    padding: 0.5rem;
+    color: black;
+    background-color: #FFF;
+    border: none;
+    border-radius: 0.2rem;
+}
+
+.card-holder{
+    z-index: 0;
+    width: 17rem;
+}
+
+.card{
+    margin-bottom: 3rem;
+    z-index:1;
+    box-shadow: 3px 6px 16px rgba(255, 0, 128, 0.514);
+}
+
+.card:hover{
+    box-shadow: 3px 6px 26px rgb(255, 0, 128);
+}
+
+.product-card-body{
+    height: 13rem;
+}
+
+.product-card-img{
+    text-align: center;
+    width: 17rem;
+    height: 17rem;
+    overflow: hidden;
+    padding: 0.2rem;
+}
+
+.product-card-img img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.product-img{
+    width: 100%;
+    overflow: hidden;
+    border-radius: 0.5rem;
+}
+
+.product-img img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.artist-card-img{
+    height: 11.25rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.artist-card-img img{
+    height: 11.25rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.artist-card-holder{
+    width: 20rem;
+}
+
+.venue-card-img{
+    height: 11.25rem;
+    width:100%;
+    object-fit: cover;
+}
+
+.venue-card-img img{
+    height: 11.25rem;
+    width:100%;
+    object-fit: cover;
+}
+
+.venue-card-holder{
+    width: 20rem;
+}
+
+.over{
+    position: absolute;
+    padding: 1rem;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    z-index: 3;
+    background-color: none;
+    color: white;
+    border-radius: 0.2rem;
+}
+
+.over-text{
+    display: none;
+}
+
+.over:hover{
+    background-color: rgba(63, 0, 31, 0.356);
+}
+
+.over:hover .over-text{
+    display: block;
+}
+
+.border{
+    border-radius: 0.2rem;
+}
+
+.footer-item {
+    font-size: 1.3rem;
+}
+
+.navbar-container {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 99;
+    height: 3.5rem;
+}
+
+.navbar {
+    background-color:black;
+}
+
+.navbar-dark .navbar-brand {
+    font-size: 1.7rem;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #FF0080;
+    font-size: 1.7rem;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    cursor: pointer;
+    color: white;
+    text-shadow: 3px 2px 3px #FF0080;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.store-item {
+    color: #000;
+}
+
+.dropdown {
+    position: fixed;
+    right:0;
+    top: 3.5rem;
+    overflow: auto;
+    padding: 1rem;
+    z-index: 2;
+    background-color: black;
+    color: white;
+    border-radius: 0 0 0.5rem 0.5rem;
+    text-align: right;
+}
+
+.close-button{
+    position: absolute;
+    text-align: center;
+    right: 3rem;
+    width: 2rem;
+    height: 2rem;
+    z-index: 4;
+}
+
+.close-button:before{
+    content: "";
+    position: absolute;
+    width: 2rem;
+    height: 0.4rem;
+    background-color: #FF0080;
+    transform: rotate(45deg);
+}
+
+.close-button:after{
+    content: "";
+    position: absolute;
+    width: 2rem;
+    height: 0.4rem;
+    background-color: #FF0080;
+    transform: rotate(-45deg);
+}
+
+.filter-container {
+    max-width: 12rem;
+    margin-left: 1rem;
+}
+
+.current-page{
+    background-color: #ccc;
+    color: #FF0080;
+}
+
+.page-link{
+    min-width: 2.7rem;
+    color: #FF0080;
+}
+
+.page-link:hover{
+    color: black;
+}
+
+.inline-checkbox {
+    position: absolute;
+    right: 0;
+}
+
+.checkbox-text {
+    max-width: 80%;
+}
+
+.error {
+    width: 90%;
+    margin-left: 10%;
+    margin-bottom: 0.5rem;
+    color: #FF0080;
+}
+
+.upload-progress-bar {
+    position: relative;
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-bottom: 1rem;
+    height: 1.2rem;
+    border-radius: 0.2rem;
+    overflow: hidden;
+}
+
+.upload-progress-fill {
+    position: absolute;
+    z-index:1;
+    top:0;
+    left:0;
+    bottom:0;
+    background-color: #FF0080;
+}
+
+.upload-progress-text {
+    position: relative;
+    top: -0.2rem;
+    z-index:2;
+    color: white;
+}
+
+.extension {
+    vertical-align: middle;
+}
+
+.order-button {
+    width: 1.7rem;
+    height: 1.7rem;
+    padding: 0.1rem;
+}
+
+.media-card {
+    position: relative;
+    width: 16rem;
+    height: 12rem;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    display: inline-block;
+    border-radius: 0.5rem;
+    border: 1px solid #666;
+}
+
+.media-card button {
+    position: absolute;
+    bottom: 0.5rem;
+    z-index: 3;
+    margin: 0;
+    background-color: #FF0080;
+}
+
+.media-card button:hover {
+    background-color: white;
+}
+
+.media-card-inner {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    height: 98%;
+    padding-top: 2.5rem;
+}
+
+.media-card-inner div {
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.media-card audio {
+    width: 100%;
+}
+
+.media-card input {
+    margin: 0;
+    border-radius: 0;
+}
+
+.text-copy {
+    position: absolute;
+    left:0;
+    right:0;
+    top:0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.text-copy:before {
+    content:"";
+    position: absolute;
+    left: 0.2rem;
+    width: 1rem;
+    top:0.2rem;
+    height: 1.5rem;
+    border: 3px solid white;
+    border-radius: 0.2rem;
+    background-color: #FF0080;
+}
+
+.text-copy:after {
+    content:"";
+    position: absolute;
+    left: 0.6rem;
+    width: 1rem;
+    top:0.6rem;
+    height: 1.5rem;
+    border: 3px solid #FF0080;
+    border-radius: 0.2rem;
+    background-color: white;
+}
+
+.text-copy:hover:after {
+    background-color: #FF0080;
+    border: 3px solid #FF0080;
+}
+
+.text-copy:hover:before {
+    background-color: white;
+    border: 3px solid #FF0080;
+}
+
+.img-profile-container {
+    margin: 0.2rem;
+    width: 10rem;
+    height: 10rem;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 0.5rem;
+}
+
+.img-profile-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.img-profile-container-large {
+    margin: 0.2rem;
+    width: 20rem;
+    height: 20rem;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 0.5rem;
+}
+
+.img-profile-container-large img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.img-container {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.img-container img {
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.img-container-preview {
+    width: 100%;
+    height: 9rem;
+    text-align: center;
+    overflow: hidden;
+}
+
+.img-container-preview img {
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* The check */
+.check {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    padding-right: 15px;
+    cursor: pointer;
+    font-size: 18px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.check input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: #000;
+    border-color:#FF0080;
+    border-style:solid;
+    border-width:2px;
+}
+
+
+/* When the checkbox is checked, add a blue background */
+.check input:checked ~ .checkmark {
+    background-color: #000;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.check input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.check .checkmark:after {
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid ;
+    border-color:#FF0080;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* The radio */
+.radio {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-left: 10px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 20px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-size: 16px;
+}
+
+/* Hide the browser's default radio button */
+.radio input {
+   position: absolute;
+   opacity: 0;
+   cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkround {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #000 ;
+    border-color:#FF0080;
+    border-style:solid;
+    border-width:2px;
+    border-radius: 50%;
+}
+
+/* When the radio button is checked, add a blue background */
+.radio input:checked ~ .checkround {
+   background-color: #000;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkround:after {
+   content: "";
+   position: absolute;
+   display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio input:checked ~ .checkround:after {
+   display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio .checkround:after {
+    left: 2px;
+   top: 2px;
+   width: 12px;
+   height: 12px;
+   border-radius: 50%;
+   background:#FF0080;
+}
+.order_info {
+    width: 90%;
+}
+
+.order_hr {
+    margin: 0;
+    border-color: rgb(0, 0, 0);
+}
+
+.order_confirmed_page {
+    background-color: #FFF;
+}
+.order_img {
+    height: 40%;
+}
+.order_item_cat {
+    color: #000000;
+    font-size: 1.3rem;
+}
+.order_item {
+    color: #000000;
+    padding-top: 50%;
+    font-size: 1rem;
+}
+.order_header {
+    color: #000000;
+    font-size: 1.7rem;
+    padding-top: 2%;
+}
+
+.order_detail {
+    max-height: 200px;
+    margin-left: 1%;
+}
+.order_items_holder {
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.return_button {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: .5%;
+    padding-right: 0.5%;
+    border-radius: 5px;
+    margin-top: 2%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.return_button:hover {
+    box-shadow: 1px 2px 10px rgb(255, 0, 128);
+}
+
+.button_text {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    font-size: 1.5rem;
+    color: #FF0080;
+}
+.jumbotron {
+    background-color: #fff;
+    box-shadow: 1px 2px 10px rgb(255, 0, 128);
+    border-radius: 0.5rem;
+}
+
+.item_hr {
+    border-color: #FF0080;
+}
+
+.purchase_text {
+    font-size: 1.3rem;
+}
+
+.admin-nav-link {
+    position: relative;
+    font-size: 1.7rem;
+    padding: 1rem;
+}
+
+.admin-nav-link:hover {
+    cursor: pointer;
+    color: white;
+    text-shadow: 3px 2px 3px #FF0080;
+}
+
+.admin-nav-link-selected {
+    background: rgba(255, 0, 128, 0.11);
+    box-shadow: 0 0 20px 2px #FF0080;
+}
+
+.admin-navbar {
+    width: 100%;
+    background-color: #333;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.admin-nav-title{
+    font-size: 1.7rem;
+    padding: 1rem;;
+}
+
+.address_label {
+    font-size: 1.2rem;
+}
+
+.address_type {
+    font-size: 1.5rem;
+}
+
+.sort-holder-spot-reserve {
+    opacity:0;
+    margin: 0.2rem;
+    background-color: black;
+    border-radius: 0.2rem;
+    color: white;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.sort-holder {
+    position: absolute;
+    left:0.2rem;
+    right:0.2rem;
+    top:0.2rem;
+    bottom:0.2rem;
+    border-radius: 0.2rem;
+    color: white;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    box-shadow: inset 0 0 0.5rem #000;
+}
+
+.sort-holder:hover {
+    cursor: pointer;
+    background-color: #333;
+}
+
+.sort-holder button{
+    width: initial;
+    height: initial;
+}
+
+.sort-off, .sort-asc, .sort-desc, .sort-on-fixed {
+    position: relative;
+    top: 1rem;
+}
+
+.sort-off button, .sort-on-fixed button, .sort-asc button, .sort-desc button{
+    opacity:0;
+}
+
+.sort-off:after {
+    content:"";
+    position: absolute;
+    left:0.2rem;
+    width: 1rem;
+    height: 0.3rem;
+    background-color: white;
+    border-radius: 0.2rem;
+}
+
+.sort-on-fixed:after {
+    content:"";
+    position: absolute;
+    left:0.2rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    border: 3px solid #FF0080;
+    border-radius: 50%;
+}
+
+.sort-asc:after {
+    content:"";
+    position: absolute;
+    left:0.2rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-right: 4px solid #FF0080;
+    border-bottom: 4px solid #FF0080;
+    border-radius: 0.2rem;
+    transform: rotate(45deg);
+}
+
+.sort-desc:after {
+    content:"";
+    position: absolute;
+    left:0.2rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-left: 4px solid #FF0080;
+    border-top: 4px solid #FF0080;
+    border-radius: 0.2rem;
+    transform: rotate(45deg);
+}
+
+.filter-check{
+    position: relative;
+    top: 0.6rem;
+}
+
+.filter-check:after {
+    content:"";
+    position: absolute;
+    left:0.2rem;
+    width: 0.7rem;
+    height: 1.4rem;
+    border-right: 4px solid #FF0080;
+    border-bottom: 4px solid #FF0080;
+    border-radius: 0.2rem;
+    transform: rotate(45deg);
+}
+
+.public_sort_container {
+    position: relative;
+    min-width: 10rem;
+    padding-bottom: 0.5rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    overflow: hidden;
+}
+
+.punblic_sort_container {
+    background-color: #aaa;
+    color: black;
+}
+
+.public_sort_container button{
+    opacity: 0;
+}
+
+.text-copy-container {
+    position: relative;
+    width: 12rem;
+    height:3rem;
+}
+
+.text-copy-container input {
+    width: 100%;
+    margin: 0;
+}
+
+.copy-text-title {
+    text-align: center;
+}
+
+.copy-only {
+    color: black;
+    background-color: #ccc;
+    padding-left: 2rem;
+}
+
+.copy-only:hover {
+    background-color: white;
+}
+
+.required {
+    color: #FF0080;
+}
+
+.toast {
+    position: absolute;
+    width: 100%;
+    height: 0;
+    z-index: 3;
+    overflow: visible;
+}
+
+.toast-body {
+    position: absolute;
+    top:3rem;
+    background-color: #333;
+    color: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.blog_title {
+    font-size: 2.5rem;
+}
+
+.blog_timestamp {
+    font-size: 1.3rem;
+    padding: 0.2rem; 
+}
+
+.blog_text {
+    font-size: 1rem;
+    padding: 0.2rem;
+}
+
+.blog_info {
+    color: white;
+    max-height: 100%;
+    overflow: hidden;
+}
+
+.blog_row {
+    height: 15rem;
+}
+
+.blog-list-img {
+    height: 15rem;
+    overflow: hidden;
+    border-radius: 0.5rem;
+}
+
+.blog_row:hover {
+    border-radius: 0.2rem;
+    background-color: #252525;
+}
+
+.blog_container {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.helper {
+    width: 1px;
+    height: 100%;
+    float: left;
+}
+
+.hide-small {
+    float: left;
+}
+
+.default-audio {
+    width: 100%;
+    background-color: black;
+    border-radius: 2rem;
+    box-shadow: 0 0 1rem 0.05rem #FF0080;
+}
+
+.default-audio audio {
+    width: 100%;
+}
+
+.checkout_address_container {
+    width: 60%; 
+    border: 1px solid white; 
+    padding: 2%; 
+    border-radius: 0.5rem; 
+    box-shadow: 0 0 3.5rem 0.1rem rgba(255, 0, 128, 0.5);
+}
+
+.checkout_button {
+    padding: 0.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.checkout_button:hover {
+    background-color: #e3e3e3;
+}
+
+.checkout_wrap {
+    width: 100%;
+    font-size: 1.2rem;
+    color: black;
+}
+.checkout_bar {
+    counter-reset: step;
+}
+
+.checkout_bar li {
+    list-style-type: none;
+    float: left;
+    width: 25%;
+    position: relative;
+    text-align: center;
+}
+
+.checkout_bar li:before {
+    content: counter(step);
+    position: relative;
+    counter-increment: step;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #ddd;
+    display: block;
+    text-align: center;
+    margin: 0 auto 10px auto;
+    border-radius: 50%;
+    background-color: white;
+    z-index: 2;
+
+}
+
+.checkout_bar li:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 12px;
+    background-color: #ddd;
+    top: 15px;
+    left: -50%;
+    z-index: 1;
+}
+
+.checkout_bar li:first-child:after {
+    content: none;
+}
+
+.checkout_bar li.active {
+    color: #000000;
+    font-size: 1.7rem;
+}
+
+.checkout_bar li.active:before {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    box-shadow: 0.2px 2px 3px 1px #888888;
+    box-shadow: 4px 4px 3px #d9d9d9 inset;
+}
+
+.checkout_bar li.active p {
+    color: white;
+}
+
+.checkout_bar li.active:hover::before {
+    box-shadow: 1px 2.5px 3px 1.5px #888888;
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+}
+
+.checkout_bar li.active a {
+    color: #FF0080;
+}
+
+.checkout_bar li.active:after {
+    background-color: #FF0080;
+    box-shadow: 4px 4px 3px #d9006c inset;
+}
+
+.checkout_bar li.active + li:after {
+    background-color: #ffffff;
+    box-shadow: 4px 4px 3px #d9d9d9 inset;
+}
+
+.checkout_bar li.previous:before {
+    background-color: #FF0080;
+    border-color: #FF0080;
+    box-shadow: 4px 4px 3px #d9006c inset;
+}
+
+.checkout_bar li.previous:hover::before {
+    box-shadow: 1px 2.5px 3px 1.5px #888888;
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+}
+
+.checkout_bar li.previous:hover {
+    font-size: 1.5rem;
+}
+.checout_bar li.previous {
+    color: white;
+}
+
+.checkout_bar li.previous {
+    color: white;
+}
+
+.checkout_bar li.previous:after {
+    background-color: #FF0080;
+    box-shadow: 4px 4px 3px #d9006c inset;
+}
+
+.checkout_bar li.next:before {
+    background-color: #949494;
+    border-color: #949494;
+    box-shadow: 4px 4px 3px #808080 inset;
+}
+
+.checkout_bar li.next {
+    color: #c4c4c4;
+}
+
+.checkout_bar li.incomplete:before {
+    background-color: #949494;
+    border-color: #949494;
+    box-shadow: 4px 4px 3px #808080 inset;
+}
+
+.checkout_bar li.incomplete {
+    color: #c4c4c4;
+}
+
+.checkout_bar li.incomplete:after {
+    background-color: #949494;
+    box-shadow: 4px 4px 3px #808080 inset;
+}
+
+.checkout_bar li.complete:before {
+    background-color: #FF0080;
+    border-color: #FF0080;
+}
+
+.checkout_bar li.complete {
+    color: #ffffff;
+    font-size: 1.7rem;
+}
+
+.checkout_bar li.complete:after {
+    background-color: #FF0080;
+    box-shadow: 4px 4px 3px #d9006c inset;
+}
+
+.mixtape_upload {
+    margin-top: 5%;
+}
+
+.mixtape_item_info {
+    text-indent: 2rem;
+}
+
+.mixtape_info_button {
+    box-shadow: 4px 4px 3px #d9006c inset;
+}
+
+.about_hr {
+    border-color: black;
+    box-shadow: 8px 6px 1.2px #FF0080;
+}
+.p_about {
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.about_title {
+    padding-top: 2%;
+    padding-bottom: 2%;
+    text-align: center;
+}
+.employee_card {
+    color: black;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.employee_card:hover {
+    box-shadow: none;
+}
+.employee_image_container {
+    height: 15rem;
+    max-width: 15rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: 15%;
+}
+
+.employee_image {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.employee_info {
+    background-color: white;
+    border-radius: 0.5rem;
+    max-height: 30rem;
+}
+
+.employee_info:hover {
+    box-shadow: 3px 6px 16px rgba(255, 0, 128, 0.514);
+}
+
+.employee_info_button {
+    background-color: #ff0080;
+    border-color: #ff0080;
+}
+
+.employee_info_button:hover {
+    box-shadow: 4px 4px 3px #d9006c inset; 
+}
+
+.employee_name {
+    color: #ff0080;
+}
+
+.employee_role {
+    opacity: 0.45;
+}
+
+.employee_content {
+    background-color: #191919;
+    background-image: url("../../img/sleepovers.svg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position-x: center;
+    background-position-y: 65%;
+    background-size: 36%;
+    background-origin: padding-box;
+}
+
+#about_container {
+    padding: 10px;
+    border: 2px solid #ff0080;
+    border-radius: 0.5rem;
+}
+#first_paragraph {
+    padding-left: 10px;
+    border-left: 4px solid #cfd1d3;
+}
+.cart_item_image_container {
+    max-width: 10rem;
+    min-height: 10rem;
+}
+
+.cart_item_image {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.2rem;
+    object-fit: cover;
+}
+
+#body-container {
+    min-height: 100%;
+    position: relative;
+}
+
+#content-container{
+    position: relative;
+    overflow: visible;
+    padding-top: 3.5rem;
+}
+
+#main {
+    overflow: visible;
+    padding-bottom: 4rem;
+}
+
+#order_top {
+    padding-bottom: 3%;
+    border-radius: 0.5rem 0.5rem 0rem 0rem;
+}
+
+#order_bottom {
+    border-radius: 0rem 0rem 0.5rem 0.5rem;
+}
+
+#admin-profile-img {
+    margin: 0.2rem;
+    width: 20rem;
+    height: 20rem;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    border: 2px solid white;
+    box-shadow: 0 0 10px #FF0080;
+}
+
+#admin-profile-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#mixtape_item_price {
+    padding-right: 15%;
+}
+
+#mixtape_item_quantity {
+    padding-right: 15%;
+}
+
+#mixtape_uploader {
+    border: 1px solid white; 
+    padding: 2%; 
+    border-radius: 0.5rem; 
+    box-shadow: 0 0 3.5rem 0.1rem rgba(255, 0, 128, 0.5);
+}
+
+/* 
+Image References: 
+    Sleepovers T-shirt:
+        https://www.amazon.com/INTO-AM-Casual-Sleeve-Graphic/dp/B014XIEEMY 
+
+*/

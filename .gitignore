@@ -1,0 +1,6 @@
+#uncomment to ignore my_sql_cred.php
+src/my_sql_cred.php
+#ignore all local server files
+files/
+#ignore all catalog files
+catalog/

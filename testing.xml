@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit bootstrap="src/bootstrap.php" colors="true">
+    <testsuites>
+        <testsuite name="PHPunit Test Suite">
+            <directory suffix=".php">./tests/</directory>
+        </testsuite>
+    </testsuites>
+
+    <php>
+        <!-- Define the mysql credentials -->
+        <var name="mysql_servername" value="localhost" />
+        <var name="mysql_dbname" value="sleepovers" />
+        <var name="mysql_username" value="web_user" />
+        <var name="mysql_password" value="sleepovers_password" />
+    </php>
+
+    <filter>
+        <whitelist>
+            <directory>./</directory>
+            <exclude>
+                <directory>./tests</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>

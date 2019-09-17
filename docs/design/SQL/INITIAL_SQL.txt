@@ -1,0 +1,286 @@
+
+--
+-- Table structure for table `address`
+--
+
+DROP TABLE IF EXISTS `address`;
+CREATE TABLE IF NOT EXISTS `address` (
+  `AddressID` int(11) NOT NULL,
+  `street` varchar(255) DEFAULT NULL,
+  `lineTwo` varchar(150) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `province` varchar(255) DEFAULT NULL,
+  `postalCode` varchar(15) DEFAULT NULL,
+  PRIMARY KEY (`AddressID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mediagroup`
+--
+
+DROP TABLE IF EXISTS `mediagroup`;
+CREATE TABLE IF NOT EXISTS `mediagroup` (
+  `mediaGroupID` int(11) NOT NULL,
+  PRIMARY KEY (`mediaGroupID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `scheduledevent`
+--
+
+DROP TABLE IF EXISTS `scheduledevent`;
+CREATE TABLE IF NOT EXISTS `scheduledevent` (
+  `startDate` datetime NOT NULL,
+  `endDate` datetime NOT NULL,
+  PRIMARY KEY (`startDate`,`endDate`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `image`
+--
+
+DROP TABLE IF EXISTS `image`;
+CREATE TABLE IF NOT EXISTS `image` (
+  `imageID` int(11) NOT NULL,
+  `mediaGroupID` int(11) DEFAULT NULL,
+  `filename` varchar(255) DEFAULT NULL,
+  `filtype` varchar(10) DEFAULT NULL,
+  `data` mediumblob,
+  PRIMARY KEY (`imageID`),
+  FOREIGN KEY (`mediaGroupID`) REFERENCES `mediagroup` (`mediaGroupID`) ON DELETE cascade ON UPDATE cascade
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+--
+-- Table structure for table `useraccount`
+--
+
+DROP TABLE IF EXISTS `useraccount`;
+CREATE TABLE IF NOT EXISTS `useraccount` (
+  `userEmail` varchar(254) NOT NULL,
+  `profileImageID` int(11) DEFAULT NULL,
+  `firstName` varchar(200) DEFAULT NULL,
+  `lastName` varchar(200) DEFAULT NULL,
+  `shippingAddressID` int(11) DEFAULT NULL,
+  `billingAddressID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`userEmail`),
+  FOREIGN KEY (`profileImageID`) REFERENCES `image` (`imageID`) ON DELETE cascade ON UPDATE cascade,
+  FOREIGN KEY (`shippingAddressID`) REFERENCES `address` (`addressID`) ON DELETE cascade ON UPDATE cascade,
+  FOREIGN KEY (`billingAddressID`) REFERENCES `address` (`addressID`) ON DELETE cascade ON UPDATE cascade
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `adminaccount`
+--
+
+DROP TABLE IF EXISTS `adminaccount`;
+CREATE TABLE IF NOT EXISTS `adminaccount` (
+  `userEmail` varchar(254) NOT NULL,
+  PRIMARY KEY (`userEmail`),
+  FOREIGN KEY (`userEmail`) REFERENCES `useraccount` (`userEmail`) ON DELETE cascade ON UPDATE cascade
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `artistaccount`
+--
+
+DROP TABLE IF EXISTS `artistaccount`;
+CREATE TABLE IF NOT EXISTS `artistaccount` (
+  `userEmail` varchar(254) NOT NULL,
+  `artistName` varchar(200) DEFAULT NULL,
+  `artistImageID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`userEmail`),
+  FOREIGN KEY (`userEmail`) REFERENCES `useraccount` (`userEmail`) ON DELETE cascade ON UPDATE cascade,
+  FOREIGN KEY (`artistImageID`) REFERENCES `image` (`imageID`) ON DELETE cascade ON UPDATE cascade
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product`
+--
+
+DROP TABLE IF EXISTS `product`;
+CREATE TABLE IF NOT EXISTS `product` (
+  `productID` int(11) NOT NULL,
+  `mediaGroupID` int(11) DEFAULT NULL,
+  `name` varchar(400) DEFAULT NULL,
+  `description` varchar(4000) DEFAULT NULL,
+  `price` decimal(7,2) DEFAULT NULL,
+  `maxQuantity` int(11) DEFAULT NULL,
+  PRIMARY KEY (`productID`),
+  FOREIGN KEY (`mediaGroupID`) REFERENCES `mediagroup` (`mediaGroupID`) ON DELETE cascade ON UPDATE cascade
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+--
+-- Table structure for table `artistonlyproduct`
+--
+
+DROP TABLE IF EXISTS `artistonlyproduct`;
+CREATE TABLE IF NOT EXISTS `artistonlyproduct` (
+  `productID` int(11) NOT NULL,
+  PRIMARY KEY (`productID`),
+  FOREIGN KEY (`productID`) REFERENCES `product` (`productID`) ON DELETE cascade ON UPDATE cascade
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `audio`
+--
+
+DROP TABLE IF EXISTS `audio`;
+CREATE TABLE IF NOT EXISTS `audio` (
+  `audioID` int(11) NOT NULL,
+  `mediaGroupID` int(11) DEFAULT NULL,
+  `filename` varchar(255) DEFAULT NULL,
+  `filtype` varchar(10) DEFAULT NULL,
+  `data` mediumblob,
+  PRIMARY KEY (`audioID`),
+  FOREIGN KEY (`mediaGroupID`) REFERENCES `mediagroup` (`mediaGroupID`) ON DELETE cascade ON UPDATE cascade
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `blogpost`
+--
+
+DROP TABLE IF EXISTS `blogpost`;
+CREATE TABLE IF NOT EXISTS `blogpost` (
+  `blogID` int(11) NOT NULL,
+  `mediaGroupID` int(11) DEFAULT NULL,
+  `title` varchar(400) DEFAULT NULL,
+  `timestamp` datetime DEFAULT NULL,
+  `text` varchar(4000) DEFAULT NULL,
+  PRIMARY KEY (`blogID`),
+  FOREIGN KEY (`mediaGroupID`) REFERENCES `mediagroup` (`mediaGroupID`) ON DELETE cascade ON UPDATE cascade
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cartitem`
+--
+
+DROP TABLE IF EXISTS `cartitem`;
+CREATE TABLE IF NOT EXISTS `cartitem` (
+  `productID` int(11) NOT NULL,
+  `userEmail` varchar(254) NOT NULL,
+  `quantity` int(11) DEFAULT NULL,
+  `mediaGroupID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`productID`,`userEmail`),
+  FOREIGN KEY (`mediaGroupID`) REFERENCES `mediagroup` (`mediaGroupID`),
+  FOREIGN KEY (`productID`) REFERENCES `product` (`productID`) ON DELETE cascade ON UPDATE cascade,
+  FOREIGN KEY (`userEmail`) REFERENCES `useraccount` (`userEmail`) ON DELETE cascade ON UPDATE cascade
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `eventpost`
+--
+
+DROP TABLE IF EXISTS `eventpost`;
+CREATE TABLE IF NOT EXISTS `eventpost` (
+  `eventID` int(11) NOT NULL,
+  `mediaGroupID` int(11) DEFAULT NULL,
+  `title` varchar(400) DEFAULT NULL,
+  `timestamp` datetime DEFAULT NULL,
+  `text` varchar(4000) DEFAULT NULL,
+  PRIMARY KEY (`eventID`),
+  FOREIGN KEY (`mediaGroupID`) REFERENCES `mediagroup` (`mediaGroupID`) ON DELETE cascade ON UPDATE cascade
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order`
+--
+
+DROP TABLE IF EXISTS `order`;
+CREATE TABLE IF NOT EXISTS `order` (
+  `orderID` int(11) NOT NULL,
+  `userEmail` varchar(254) DEFAULT NULL,
+  `shippingAddress` int(11) DEFAULT NULL,
+  `billingAddress` int(11) DEFAULT NULL,
+  PRIMARY KEY (`orderID`),
+  FOREIGN KEY (`userEmail`) REFERENCES `useraccount` (`userEmail`) ON DELETE cascade ON UPDATE cascade,
+  FOREIGN KEY (`shippingAddress`) REFERENCES `address` (`addressID`) ON DELETE cascade ON UPDATE cascade,
+  FOREIGN KEY (`billingAddress`) REFERENCES `address` (`addressID`) ON DELETE cascade ON UPDATE cascade
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orderitem`
+--
+
+DROP TABLE IF EXISTS `orderitem`;
+CREATE TABLE IF NOT EXISTS `orderitem` (
+  `productID` int(11) NOT NULL,
+  `orderID` int(11) NOT NULL,
+  `quantity` varchar(255) DEFAULT NULL,
+  `mediaGroupID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`productID`,`orderID`),
+  FOREIGN KEY (`mediaGroupID`) REFERENCES `mediagroup` (`mediaGroupID`) ON DELETE cascade ON UPDATE cascade,
+  FOREIGN KEY (`productID`) REFERENCES `product` (`productID`) ON DELETE cascade ON UPDATE cascade,
+  FOREIGN KEY (`orderID`) REFERENCES `order` (`orderID`) ON DELETE cascade ON UPDATE cascade
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `password`
+--
+
+DROP TABLE IF EXISTS `password`;
+CREATE TABLE IF NOT EXISTS `password` (
+  `userEmail` varchar(254) NOT NULL,
+  `hash` varchar(32) DEFAULT NULL,
+  `salt` varchar(16) DEFAULT NULL,
+  PRIMARY KEY (`userEmail`),
+  FOREIGN KEY (`userEmail`) REFERENCES `useraccount` (`userEmail`) ON DELETE cascade ON UPDATE cascade
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+
+
+--
+-- Table structure for table `staffaccount`
+--
+
+DROP TABLE IF EXISTS `staffaccount`;
+CREATE TABLE IF NOT EXISTS `staffaccount` (
+  `userEmail` varchar(254) NOT NULL,
+  PRIMARY KEY (`userEmail`),
+  FOREIGN KEY (`userEmail`) REFERENCES `useraccount` (`userEmail`) ON DELETE cascade ON UPDATE cascade
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `venueaccount`
+--
+
+DROP TABLE IF EXISTS `venueaccount`;
+CREATE TABLE IF NOT EXISTS `venueaccount` (
+  `userEmail` varchar(254) NOT NULL,
+  `venueName` varchar(200) DEFAULT NULL,
+  `venueImageID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`userEmail`),
+  FOREIGN KEY (`userEmail`) REFERENCES `useraccount` (`userEmail`) ON DELETE cascade ON UPDATE cascade,
+  FOREIGN KEY (`venueImageID`) REFERENCES `image` (`imageID`) ON DELETE cascade ON UPDATE cascade
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

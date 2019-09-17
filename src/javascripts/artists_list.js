@@ -1,0 +1,1 @@
+var destination_page = '../pages/artists_results.php'; //Set the destination page for search.js
