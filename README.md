@@ -1,3 +1,5 @@
+The following repository is a copy of the original, no github commit records or contribution records are attached
+
 # Sleepovers
 Please use the provided folder structure for your scope & charter, design documenation, communications log, weekly logs and final documentation.    You are free to organize any additional folder structure as required by the project.
 
